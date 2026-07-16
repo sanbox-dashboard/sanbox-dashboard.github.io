@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sanbox — Central de Dashboards</title>
+<meta name="theme-color" content="#F5A623">
+<link rel="manifest" href="/manifest.webmanifest">
+<!-- Apple / iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sanbox">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--or:#F5A623;--od:#D4881A;--bg:#F2F5F9;--wh:#fff;--bd:#E2E8F0;--tx:#1A1F2E;--mu:#7A8799;--sh:0 4px 20px rgba(0,0,0,.06);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;min-height:100dvh;padding:max(18px,env(safe-area-inset-top)) 18px calc(24px + env(safe-area-inset-bottom));}
+.wrap{max-width:640px;margin:0 auto;}
+.top{display:flex;align-items:center;gap:13px;padding:14px 4px 22px;}
+.logo{width:46px;height:46px;border-radius:12px;box-shadow:var(--sh);flex-shrink:0;}
+.tt{font-size:1.35rem;font-weight:900;letter-spacing:-.5px;line-height:1;}
+.tt span{color:var(--or);}
+.sub{font-size:.66rem;font-weight:800;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-top:5px;}
+.grid{display:flex;flex-direction:column;gap:13px;}
+.card{display:flex;align-items:center;gap:15px;background:var(--wh);border:1px solid var(--bd);border-radius:18px;padding:17px 18px;box-shadow:var(--sh);text-decoration:none;color:inherit;transition:transform .12s ease, box-shadow .12s ease;position:relative;overflow:hidden;}
+.card:active{transform:scale(.98);}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ac);}
+.ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;background:var(--acbg);flex-shrink:0;}
+.ci{flex:1;min-width:0;}
+.cn{font-size:1.06rem;font-weight:900;line-height:1.1;}
+.cd{font-size:.76rem;color:var(--mu);font-weight:700;margin-top:3px;}
+.arw{color:var(--mu);font-size:1.3rem;font-weight:900;flex-shrink:0;}
+.foot{text-align:center;color:var(--mu);font-size:.66rem;font-weight:700;margin-top:26px;letter-spacing:.05em;}
+/* Banner instalar iOS */
+#ios{display:none;margin-top:16px;background:#fff8ee;border:1px solid #f6d9a8;border-radius:14px;padding:13px 15px;font-size:.78rem;color:#8a5a12;font-weight:700;line-height:1.45;}
+#ios b{color:var(--od);}
+#ios .x{float:right;color:#b98a3a;font-weight:900;cursor:pointer;margin-left:8px;}
+/* Botão instalar (Android/desktop) */
+#install{display:none;width:100%;margin-top:16px;background:var(--or);color:#fff;border:none;border-radius:14px;padding:14px;font:900 .9rem 'Nunito';cursor:pointer;box-shadow:var(--sh);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <svg class="logo" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FBB43C"/><stop offset="1" stop-color="#D4881A"/>
+      </linearGradient></defs>
+      <rect x="0" y="0" width="56" height="56" rx="13" fill="url(#g)"/>
+      <rect x="11" y="11" width="34" height="34" rx="7" fill="#fff"/>
+      <rect x="19" y="20" width="13" height="7" rx="2" fill="#EDA02A"/>
+    </svg>
+    <div>
+      <div class="tt">san<span>box</span></div>
+      <div class="sub">Central de Dashboards</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <a class="card" style="--ac:#F5A623;--acbg:#FEF3E0" href="/dashboard/">
+      <div class="ico">📊</div>
+      <div class="ci"><div class="cn">Vendas</div><div class="cd">Faturamento, metas, canais e produtos</div></div>
+      <div class="arw">›</div>
+    </a>
+    <a class="card" style="--ac:#16A34A;--acbg:#E7F6EC" href="/financeiro-sanbox/">
+      <div class="ico">💰</div>
+      <div class="ci"><div class="cn">Financeiro</div><div class="cd">Margens, custos e resultado</div></div>
+      <div class="arw">›</div>
+    </a>
+    <a class="card" style="--ac:#2563EB;--acbg:#E7EEFD" href="/dashboard-reputacao/">
+      <div class="ico">⭐</div>
+      <div class="ci"><div class="cn">Atendimento</div><div class="cd">Reputação e satisfação por canal</div></div>
+      <div class="arw">›</div>
+    </a>
+  </div>
+
+  <button id="install">⬇️ Instalar aplicativo</button>
+
+  <div id="ios">
+    <span class="x" onclick="this.parentNode.style.display='none'">✕</span>
+    Para instalar no iPhone/iPad: toque em <b>Compartilhar</b> (o ícone ⬆️ na barra) e depois em <b>“Adicionar à Tela de Início”</b>.
+  </div>
+
+  <div class="foot">Sanbox · Dados ao vivo · atualização automática</div>
+</div>
+
+<script>
+// Registro do service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+}
+// Instalação Android/Desktop
+let deferred = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault(); deferred = e;
+  const b = document.getElementById('install'); b.style.display='block';
+  b.onclick = async () => { b.style.display='none'; deferred.prompt(); await deferred.userChoice; deferred=null; };
+});
+// Dica de instalação no iOS (Safari não tem prompt automático)
+(function(){
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+  if (isIOS && !standalone) document.getElementById('ios').style.display='block';
+})();
+</script>
+</body>
+</html>

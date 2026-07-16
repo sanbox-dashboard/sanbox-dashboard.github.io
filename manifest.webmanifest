@@ -1,0 +1,16 @@
+{
+  "name": "Sanbox — Central de Dashboards",
+  "short_name": "Sanbox",
+  "description": "Central de dashboards da Sanbox: Vendas, Financeiro e Atendimento.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F2F5F9",
+  "theme_color": "#F5A623",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
